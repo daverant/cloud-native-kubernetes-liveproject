@@ -22,11 +22,23 @@ let determineEnv = () => {
     }
 }
 
+let determineRedisPass = () => {
+    
+    const pass = process.env.REDIS_PASS
+
+    if(process.env.REDIS_PASS === undefined || process.env.REDIS_PASS == null) {
+        return ""
+    }
+
+    return pass
+}
+
 module.exports = function() {
         
     const config_dir = determineConfigDir()
     const env = determineEnv()
     const config_data = require(`${config_dir}/config.${env}.json`)
+    config_data.redis_pass = determineRedisPass()
 
     return config_data
 }

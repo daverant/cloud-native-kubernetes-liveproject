@@ -24,8 +24,29 @@ spec:
           - name: NODE_ENV
             value: "production"
           - name: CONFIG_DIR
-            value: "/opt/sns/app/config"
+            value: "/opt/sns/app/config"            
+          - name: REDIS_PASS
+            valueFrom:
+              secretKeyRef:
+                name: redis-secrets
+                key: password
         imagePullPolicy: "Never"
+        resources:
+          requests:
+            cpu: 500m
+            memory: 128Mi
+          limits:
+            cpu: 1000m
+            memory: 256Mi
+        livenessProbe:
+          httpGet:
+            path: /api/probes/liveness
+            port: 3000
+        readinessProbe:
+          httpGet:
+            path: /api/probes/readiness
+            port: 3000
+            
 ---
 apiVersion: v1
 kind: Service

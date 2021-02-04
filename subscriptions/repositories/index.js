@@ -1,0 +1,19 @@
+let makeRedisClient = (config) => {
+    
+    const redis = require("async-redis")
+    const options = {
+        host: config.redis_host,
+        port: config.redis_port,
+        password: config.redis_pass
+    }
+
+    return redis.createClient(options)
+}
+
+module.exports = (config) => {
+
+    const client = makeRedisClient(config)
+    const repo = require('./SubscriptionsRepository')(client)
+
+    return {paymentsRepository: repo}
+}

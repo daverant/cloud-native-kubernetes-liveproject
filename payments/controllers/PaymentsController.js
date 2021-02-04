@@ -18,7 +18,7 @@ class PaymentsController {
         }
 
         const result = this.transformToApiFormat(pm)
-        res.send(result)        
+        res.send(result)
     }
 
     async handleAddPaymentMethod(req, res) {

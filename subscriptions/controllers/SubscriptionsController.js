@@ -4,7 +4,7 @@ const domain = require('../domain/SubscriptionDetails')
 
 class SubscriptionsController {
     constructor(subscriptionRepository, logger) {
-        this.subscriptionRepository = SubscriptionRepository
+        this.subscriptionRepository = subscriptionRepository
         this.logger = logger
     }
 
@@ -30,12 +30,18 @@ class SubscriptionsController {
             return
         }
 
-        await this.subscriptionRepository.addOrReplaceSubscription(subscription.productSubscription)        
-        const result = this.transformToApiFormat(subscription)
+        const original = await this.subscriptionRepository.getSubscription()
+        subscription.subscription.process(original)
+
+        await this.subscriptionRepository.addOrReplaceSubscription(subscription.subscription)        
+        const result = this.transformToApiFormat(subscription.subscription)
         res.send(result)
     }
 
     async handleCancelSubscription(req, res) {
+        const original = await this.subscriptionRepository.getSubscription()
+        original.cancel()
+
         await this.SubscriptionRepository.removeSubscription()
         res.status(204)
         res.end()

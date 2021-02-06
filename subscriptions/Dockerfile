@@ -4,7 +4,8 @@ RUN mkdir -p /opt/sns/app && \
     mkdir -p /opt/sns/logs && \
     chmod 700 /opt/sns/logs
 
-COPY config /opt/sns/app/config 
+COPY config /opt/sns/app/config
+COPY clients /opt/sns/app/clients
 COPY controllers /opt/sns/app/controllers
 COPY domain /opt/sns/app/domain
 COPY repositories /opt/sns/app/repositories
@@ -18,6 +19,6 @@ RUN chmod 700 docker-entrypoint.sh && \
     dos2unix docker-entrypoint.sh && \
     npm install
 
-EXPOSE 3000
+EXPOSE 3001
 
 ENTRYPOINT ["./docker-entrypoint.sh"]

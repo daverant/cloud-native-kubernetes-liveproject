@@ -1,0 +1,13 @@
+{
+    "payments": {
+        "port": 3000
+    },
+    "subscriptions": {
+        "port": 3001,
+        "amountPerMonth": 25.00
+    },
+    "redis": {
+        "host": "redis",
+        "port": 6379
+    }
+}

@@ -34,7 +34,7 @@ class SubscriptionsRepository {
         let len = await this.client.hlen(subscriptionKey)
         
         if(len <= 0) {
-            return
+            return {}
         }
 
         let fields = await this.client.hkeys(subscriptionKey)

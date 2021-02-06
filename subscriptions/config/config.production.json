@@ -1,6 +1,7 @@
 {
-    "server_port": 3000,
+    "server_port": 3001,
     "redis_host": "redis",
     "redis_port": 6379,
-    "log_file": "/opt/sns/logs/logfile.txt"
+    "paymentUrlBase": "http://localhost:3000/api",
+    "amountPerMonth": 25.00
 }

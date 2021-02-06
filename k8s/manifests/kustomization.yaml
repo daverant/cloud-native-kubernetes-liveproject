@@ -10,8 +10,15 @@ secretGenerator:
   files: 
     - secrets/redis/config
     - secrets/redis/password
+
+configMapGenerator:
+  - name: sns-config
+    namespace: sns
+    files:
+      - config/config.json
     
 resources:
 - ns.yaml
 - redis.yaml
 - payment.yaml
+- subscription.yaml

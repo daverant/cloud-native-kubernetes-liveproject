@@ -1,10 +1,8 @@
-const axios = require('axios').default
 const moment = require('moment')
 const logger = require('pino')()
 const config = require("../config")()
-
+const paymentsClient = require('../clients/PaymentsClient')(logger)
 const pricePerMonth = config.pricePerMonth
-const paymentUrl = `${config.paymentUrlBase}/api/payment-methods/process`
 
 class Subscription {
 
@@ -89,11 +87,11 @@ class Subscription {
     }
     
     async processPayment(amount) {
-        //todo
+        await paymentsClient.processPaymentAsync(amount)
     }
     
     async processRefund(amount) {
-        //todo
+        await paymentsClient.processRefundAsync(amount)
     }
 }
 

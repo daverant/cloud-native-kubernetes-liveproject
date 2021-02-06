@@ -1,8 +1,10 @@
 {
     "payments": {
+        "host": "localhost",
         "port": 3000
     },
     "subscriptions": {
+        "host": "localhost",
         "port": 3001,
         "amountPerMonth": 25.00
     },

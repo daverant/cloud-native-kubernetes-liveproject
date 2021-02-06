@@ -48,7 +48,8 @@ spec:
             port: 3001
         volumeMounts:
           - name: config
-            mountPath: "/opt/sns/app/config"
+            mountPath: "/opt/sns/app/config/config.production.json"
+            subPath: "config.production.json"
             readOnly: true
       volumes:
         - name: config

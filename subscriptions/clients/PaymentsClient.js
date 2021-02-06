@@ -2,11 +2,13 @@ const axios = require('axios').default
 const validation = require('./Validation')
 const config = require("../config")()
 
+const baseUrl = `http://${config.payments.host}:${config.payments.port}/api`
+
 class PaymentsClient {
     constructor(logger) {
         this.logger = logger
         this.httpClient = axios.create({
-            baseURL: config.paymentUrlBase
+            baseURL: baseUrl
         });
         this.httpClient.interceptors.request.use(
             (config) => {logger.debug(config)},

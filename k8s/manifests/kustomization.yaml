@@ -15,7 +15,7 @@ configMapGenerator:
   - name: sns-config
     namespace: sns
     files:
-      - config/config.json
+      - config/config.production.json
     
 resources:
 - ns.yaml

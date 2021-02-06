@@ -1,7 +1,15 @@
 {
-    "server_port": 3001,
-    "redis_host": "localhost",
-    "redis_port": 6379,
-    "paymentUrlBase": "http://localhost:3000/api",
-    "amountPerMonth": 25.00
+    "payments": {
+        "host": "localhost",
+        "port": 3000
+    },
+    "subscriptions": {
+        "host": "localhost",
+        "port": 3001,
+        "amountPerMonth": 25.00
+    },
+    "redis": {
+        "host": "localhost",
+        "port": 6379
+    }
 }

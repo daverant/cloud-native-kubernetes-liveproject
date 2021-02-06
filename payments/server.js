@@ -15,7 +15,7 @@ const loadControllers = require("./controllers")
 const repositories = loadRepositories(config)
 loadControllers(app, repositories, logger)
 
-const server_port = config.server_port
+const server_port = config.payments.port
 app.listen(server_port, () => {
     logger.info(`Server is running on port ${server_port}.`)
 })

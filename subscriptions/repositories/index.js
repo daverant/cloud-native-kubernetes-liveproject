@@ -2,9 +2,9 @@ let makeRedisClient = (config) => {
     
     const redis = require("async-redis")
     const options = {
-        host: config.redis_host,
-        port: config.redis_port,
-        password: config.redis_pass
+        host: config.redis.host,
+        port: config.redis.port,
+        password: config.redis.password
     }
 
     return redis.createClient(options)

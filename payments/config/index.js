@@ -38,7 +38,7 @@ module.exports = function() {
     const config_dir = determineConfigDir()
     const env = determineEnv()
     const config_data = require(`${config_dir}/config.${env}.json`)
-    config_data.redis_pass = determineRedisPass()
+    config_data.redis.password = determineRedisPass()
 
     return config_data
 }

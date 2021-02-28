@@ -1,8 +1,8 @@
 module.exports = (app, repositories, logger) => {
     const loadPaymentsController = require('./PaymentsController')
-    app.use("/api/payment-methods", loadPaymentsController(repositories, logger))
+    app.use("/payments", loadPaymentsController(repositories, logger))
     
     const loadProbesController = require("./ProbesController")
-    app.use("/api/probes", loadProbesController(logger))
+    app.use("/probes", loadProbesController(logger))
 }
 

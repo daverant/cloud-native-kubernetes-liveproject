@@ -10,6 +10,12 @@ secretGenerator:
   files: 
     - secrets/redis/config
     - secrets/redis/password
+- name: ingress-cert
+  namespace: sns
+  type: "kubernetes.io/tls"
+  files:
+    - tls.crt=secrets/tls/localhost.pem
+    - tls.key=secrets/tls/localhost-key.pem
 
 configMapGenerator:
   - name: sns-config
@@ -22,3 +28,4 @@ resources:
 - redis.yaml
 - payment.yaml
 - subscription.yaml
+- ingress.yml

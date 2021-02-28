@@ -2,7 +2,7 @@ const axios = require('axios').default
 const validation = require('./Validation')
 const config = require("../config")()
 
-const baseUrl = `http://${config.payments.host}:${config.payments.port}/api`
+const baseUrl = `http://${config.payments.host}:${config.payments.port}/`
 
 class PaymentsClient {
     constructor(logger) {
@@ -27,7 +27,7 @@ class PaymentsClient {
     }
 
     async processAsync(type, amount) {
-        const method = "/payment-methods/process"
+        const method = "/payments/process"
         const request = {
             "type": type,
             "amount": amount

@@ -40,11 +40,11 @@ spec:
             memory: 256Mi
         livenessProbe:
           httpGet:
-            path: /api/probes/liveness
+            path: /probes/liveness
             port: 3000
         readinessProbe:
           httpGet:
-            path: /api/probes/readiness
+            path: /probes/readiness
             port: 3000
         volumeMounts:
           - name: config
